@@ -1,0 +1,7 @@
+﻿[CONFIG]
+root_dir=../../../Samples
+slideshow_interval=6000
+
+[ALBUMS]
+Trips=Lakes;Deserts
+Maths=Maths
