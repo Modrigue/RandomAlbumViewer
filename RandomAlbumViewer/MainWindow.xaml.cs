@@ -64,7 +64,7 @@ namespace AlbumViewer
         {
             InitializeComponent();
 
-            this.Title += " " + Assembly.GetEntryAssembly().GetName().Version.ToString();
+            this.Title += " " + Assembly.GetEntryAssembly().GetName().Version.ToString(3);
 
             fullscreen_ = false;
             nbSubDirectories_ = 0;
