@@ -18,7 +18,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.3
 
     - name: Restore NuGet packages
-      run: nuget restore SA.sln
+      run: nuget restore RandomAlbumViewer.sln
 
     - name: Build with MSBuild
-      run: msbuild SA.sln /p:Configuration=Release
+      run: msbuild RandomAlbumViewer.sln /p:Configuration=Release
