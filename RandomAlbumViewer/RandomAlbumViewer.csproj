@@ -109,7 +109,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /e /y $(SolutionDir)Config\AVConfig.txt $(TargetDir)
+    <PostBuildEvent>xcopy /e /y $(SolutionDir)Config\*.txt $(TargetDir)
 xcopy /e /y $(ProjectDir)Resources\*.* $(TargetDir)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

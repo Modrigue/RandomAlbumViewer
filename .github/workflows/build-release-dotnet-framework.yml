@@ -61,7 +61,7 @@ jobs:
         run: |
           $Tag = "${{ github.ref_name }}"
           $ZipName = "RandomAlbumViewer_$Tag.zip"
-          powershell Compress-Archive -Path output\*.exe, output\*.exe.config, output\*.txt, output\icon.png, output\Samples\* -DestinationPath $ZipName
+          powershell Compress-Archive -Path output\*.exe, output\*.exe.config, output\AVConfig.txt, output\icon.png, output\Samples\* -DestinationPath $ZipName
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
