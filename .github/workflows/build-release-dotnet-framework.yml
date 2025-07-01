@@ -39,7 +39,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: RandomAlbumViewer\bin\Release
+          path: |
+            RandomAlbumViewer\bin\Release
+            Samples
           retention-days: 0.01
 
   release:
@@ -59,7 +61,7 @@ jobs:
         run: |
           $Tag = "${{ github.ref_name }}"
           $ZipName = "RandomAlbumViewer_$Tag.zip"
-          powershell Compress-Archive -Path output\*.exe, output\*.exe.config, output\*.txt, output\icon.png -DestinationPath $ZipName
+          powershell Compress-Archive -Path output\*.exe, output\*.exe.config, output\*.txt, output\icon.png, output\Samples -DestinationPath $ZipName
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
