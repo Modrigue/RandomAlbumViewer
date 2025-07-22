@@ -21,9 +21,7 @@ namespace AlbumViewer
         // swaps elements <i> and <j> in list
         public static void Swap<T>(this IList<T> list, int i, int j)
         {
-            var temp = list[i];
-            list[i] = list[j];
-            list[j] = temp;
+            (list[j], list[i]) = (list[i], list[j]);
         }
     }
 }
