@@ -45,12 +45,12 @@ namespace AlbumViewer
         private int nbFiles_;
         private string[] filenames_;
 
-        private List<Button> buttonsAlbums_;
+        private readonly List<Button> buttonsAlbums_;
 
         private static string logEventsPath_;
         private static string applicationPath_;
 
-        private DispatcherTimer timer_;
+        private readonly DispatcherTimer timer_;
         private bool slideshow_;
 
         private BackgroundWorker workerInit_;
@@ -74,23 +74,27 @@ namespace AlbumViewer
             nbFiles_ = 0;
             curDir_ = "";
 
-            buttonsAlbums_ = new List<Button>();
-            buttonsAlbums_.Add(buttonAlbum11);
-            buttonsAlbums_.Add(buttonAlbum12);
-            buttonsAlbums_.Add(buttonAlbum13);
-            buttonsAlbums_.Add(buttonAlbum14);
-            buttonsAlbums_.Add(buttonAlbum21);
-            buttonsAlbums_.Add(buttonAlbum22);
-            buttonsAlbums_.Add(buttonAlbum23);
-            buttonsAlbums_.Add(buttonAlbum24);
-            buttonsAlbums_.Add(buttonAlbum31);
-            buttonsAlbums_.Add(buttonAlbum32);
-            buttonsAlbums_.Add(buttonAlbum33);
+            buttonsAlbums_ = new List<Button>
+            {
+                buttonAlbum11,
+                buttonAlbum12,
+                buttonAlbum13,
+                buttonAlbum14,
+                buttonAlbum21,
+                buttonAlbum22,
+                buttonAlbum23,
+                buttonAlbum24,
+                buttonAlbum31,
+                buttonAlbum32,
+                buttonAlbum33
+            };
 
             // slideshow timer
             slideshow_ = true;
-            timer_ = new DispatcherTimer();
-            timer_.Interval = TimeSpan.FromMilliseconds(5 * 1000); // default
+            timer_ = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(5 * 1000) // default
+            };
             timer_.Tick += Timer__Tick;
 
             // events callbacks
@@ -128,9 +132,11 @@ namespace AlbumViewer
             progressBar2.Width = originalWidth_;
             progressBar2.Visibility = Visibility.Visible;
 
-            workerInit_ = new BackgroundWorker();
-            workerInit_.WorkerReportsProgress = true;
-            workerInit_.WorkerSupportsCancellation = true;
+            workerInit_ = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
             workerInit_.DoWork += worker_DoWork;
             workerInit_.ProgressChanged += worker_ProgressChanged;
             workerInit_.RunWorkerCompleted += Worker_RunWorkerCompleted;
